@@ -1,5 +1,5 @@
 import "../App.css";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, React } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 
@@ -27,7 +27,7 @@ const [referal, setReferal] = useState(false)
 
   const addUserDetails = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:5005/user/addUserDetails', { userId, sitter, phoneNumber, email, location, bio, profilePicture, rate, referal})
+    axios.post('user/addUserDetails', { userId, sitter, phoneNumber, email, location, bio, profilePicture, rate, referal})
     console.log(props.user._id)
     navigate(`/dashboard`)
   }

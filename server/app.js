@@ -22,6 +22,9 @@ app.use("/api", allRoutes);
 const userRouter = require("./routes/user.routes");
 app.use("/user", userRouter);
 
+const bookingRouter = require("./routes/booking.routes");
+app.use("/booking", bookingRouter);
+
 
 
 

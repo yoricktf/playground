@@ -1,12 +1,23 @@
-import React from 'react'
+import { React, useState } from 'react'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 const NewBooking = (props) => {
+  const [name, setName] = useState('')
+  const [numberOfKids, setNumberOfKids] = useState(1)
+  const [pickUp, setPickUp] = useState(false)
+  const [dropOff, setDropOff] = useState(false)
+  const [bath, setBath] = useState(false)
+  const [startTime, setstartTime] = useState()
+  const [hours, setHours] = useState(0)
+  const [notes, setNotes] = useState('')
 
   console.log(props)
 
 const makeBooking = (e) => {
   e.preventDefault()
   console.log('buttons working')
+  axios.post('booking/makeBooking')
 }
 
 

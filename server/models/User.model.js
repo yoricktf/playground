@@ -18,6 +18,7 @@ const userSchema = new Schema(
     rate: Number,
     referal: Number,
     bio: String,
+    bookings: { type: ObjectId, ref: "Booking" },
     // kids: { type: ObjectId, ref: "Kid" },
   },
   {
