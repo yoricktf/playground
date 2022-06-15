@@ -10,13 +10,15 @@ const userSchema = new Schema(
       // unique: true -> Ideally, should be unique, but its up to you
     },
     password: String,
-    phoneNumber: Number,
+    profilePicture: String,
+    email: String,
+    phoneNumber: String,
     location: Array,
     sitter: Boolean,
     rate: Number,
     referal: Number,
     bio: String,
-    kids: { type: ObjectId, ref: "Kid" },
+    // kids: { type: ObjectId, ref: "Kid" },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

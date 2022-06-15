@@ -6,6 +6,7 @@ const bookingSchema = new Schema(
   {
     parent: { type: ObjectId, ref: "User" },
     kids: { type: ObjectId, ref: "Kid" },
+    name: String,
     pickUp: Boolean,
     dropOff: Boolean,
     bath: Boolean,
