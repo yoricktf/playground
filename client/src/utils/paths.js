@@ -5,3 +5,4 @@ export const PROTECTEDPAGE = "/protected";
 export const DETAILS = "/details";
 export const DASHBOARD = "/dashboard";
 export const NEWBOOKING = "/dashboard/newBooking";
+export const BOOKING = "/booking/:booking_id";

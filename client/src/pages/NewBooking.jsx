@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 
 const NewBooking = (props) => {
+  const navigate = useNavigate()
   const [name, setName] = useState(`${props.user.username}'s Booking`)
   const [numberOfKids, setNumberOfKids] = useState(1)
   const [pickUp, setPickUp] = useState(false)
@@ -18,15 +19,9 @@ const NewBooking = (props) => {
 const makeBooking = (e) => {
   e.preventDefault()
   console.log('buttons working')
-  axios.post('booking/makeBooking', { parent, name, numberOfKids, pickUp, dropOff, bath, startTime, hours, notes})
+  axios.post('booking/makeBooking', { parent, name, numberOfKids, pickUp, dropOff, bath, startTime, hours, notes});
+  navigate('/dashboard')
 }
-
-
-
-
-
-
-
 
   return (
     <>
@@ -47,7 +42,6 @@ const makeBooking = (e) => {
         <label>Pick Up:
             <input type="checkbox"  onChange={e => setPickUp(e.target.checked)}/>
         </label>
-        <h1>pick up </h1>
         <label>Drop Off:
             <input type="checkbox" onChange={e => setDropOff(e.target.checked)}/>
         </label>

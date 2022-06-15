@@ -5,8 +5,7 @@ const Dashboard = () => {
 
   const navigate = useNavigate()
 
-const goto = e => {
-  console.log('tttttttttttttttttttt');
+const goToNewBooking = e => {
   navigate('newBooking')
 }
 
@@ -20,7 +19,7 @@ const goto = e => {
         <li>PARENT a button to create a booking</li>
         <li>PARENT/SITTER show old jobs/bookings</li>
     </ol>
-      <button onClick={goto}>new booking</button>
+      <button onClick={goToNewBooking}>new booking</button>
     </div>
   )
 }

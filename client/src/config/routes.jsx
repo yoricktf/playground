@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage";
 import UserDetails from "../pages/UserDetails";
 import Dashboard from "../pages/Dashboard";
 import NewBooking from "../pages/NewBooking";
+import Booking from "../pages/Booking";
 import Login from "../pages/LogIn";
 import Signup from "../pages/Signup";
 import ProtectedPage from "../pages/ProtectedPage";
@@ -55,6 +56,14 @@ const routes = (props) => {
       path: PATHS.NEWBOOKING,
       element: user ? (
         <NewBooking {...props} />
+      ) : (
+        <Navigate to={PATHS.LOGINPAGE} replace />
+      ),
+    },
+    {
+      path: PATHS.BOOKING,
+      element: user ? (
+        <Booking {...props} />
       ) : (
         <Navigate to={PATHS.LOGINPAGE} replace />
       ),
