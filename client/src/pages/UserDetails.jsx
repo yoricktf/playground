@@ -7,15 +7,14 @@ import { useNavigate } from 'react-router-dom'
 
 
 function Details(props) {
+const navigate = useNavigate()
+const userId = props.user._id
 const [sitter, setSitter] = useState(true)
 const [phoneNumber, setPhoneNumber] = useState('')
 const [email, setEmail] = useState('')
 const [location, setLocation] = useState()
 const [bio, setBio] = useState('write a bit about yourself')
 const [profilePicture, setProfilePicture] = useState('')
-  const userId = props.user._id
-  const navigate = useNavigate()
-
 // SITTER ONLY DETAILS BELOW
 const [rate, setRate] = useState(0)
 const [referal, setReferal] = useState(false)
