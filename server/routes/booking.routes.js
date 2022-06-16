@@ -20,5 +20,14 @@ router.post('/getBooking', (req,res,next) => {
     .catch(err => console.log(err))
 })
 
+router.get('/getAllBookings', (req,res,next) => {
+  console.log(20 * '-');
+  Booking.find()
+  .then(bookings => {
+    res.status(200).json(bookings)
+    console.log(bookings)
+  })
+})
+
 
 module.exports = router;

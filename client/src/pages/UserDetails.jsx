@@ -27,7 +27,6 @@ const [referal, setReferal] = useState(false)
   const addUserDetails = (e) => {
     e.preventDefault()
     axios.post('user/addUserDetails', { userId, sitter, phoneNumber, email, location, bio, profilePicture, rate, referal})
-    console.log(props.user._id)
     navigate(`/dashboard`)
   }
 
