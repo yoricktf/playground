@@ -4,15 +4,10 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const Booking = (props) => {
   const bookingId = useParams()
-const [booking, setBooking] = useState({})
+  const [booking, setBooking] = useState({})
+  const { name, numberOfKids, pickUp, dropOff, bath, startTime, hours, notes } = booking
 
-  const [name, setName] = useState()
-  const [pickUp, setPickUp] = useState()
-  const [dropOff, setDropOff] = useState()
-  const [bath, setBath] = useState()
-  const [startTime, setStartTime] = useState()
-  const [hours, setHours] = useState()
-  const [notes, setNotes] = useState()
+
 
 
 const getBooking = () => {
@@ -28,12 +23,16 @@ useEffect(() => {
 },[])
 
 
-
-// console.log(props)
-
   return (
     <>
-      <h1>{booking.name}</h1>
+      <h1>{name}</h1>
+      <p>Number of kids:{numberOfKids}</p>
+      {pickUp ? (<div><p>Pickup </p><input checked="checked" type="checkbox" onclick="return false;" /></div>) : (<div><p>Pickup </p><input disabled type="checkbox" onclick="return false;" /></div>)}
+      {bath ? (<div><p>Bath </p><input checked="checked" type="checkbox" onclick="return false;" /></div>) : (<div><p>Bath </p><input disabled type="checkbox" onclick="return false;" /></div>)}
+      {dropOff ? (<div><p>Drop Off </p><input checked="checked" type="checkbox" onclick="return false;" /></div>) : (<div><p>Drop Off </p><input disabled type="checkbox" onclick="return false;" /></div>)}
+      <p>Start Time and Date:{startTime}</p>
+      <p>Hours: {hours}</p>
+      <p>Notes: {notes}</p>
     </>
   )
 }
