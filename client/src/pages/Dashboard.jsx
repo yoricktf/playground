@@ -14,10 +14,12 @@ const getAllBookings = () => {
   console.log('route is triggered')
   axios.get('booking/getAllBookings')
   .then(bookings => {
-    console.log(bookings)
+
     setAllBookings(bookings.data)
   })
 }
+
+console.log(props.user._id);
 
 useEffect(() => {
   getAllBookings()
@@ -32,6 +34,15 @@ useEffect(() => {
         <li>PARENT a button to create a booking</li>
         <li>PARENT/SITTER show old jobs/bookings</li>
       </ol>
+
+{allBookings.filter(booking => {
+  if (booking.parent == props.user._id) {
+    return booking
+  }
+}).map(booking => (
+  <h1>{booking.name}</h1>
+)) }
+
 
       {props.user.sitter ?
         (<>
