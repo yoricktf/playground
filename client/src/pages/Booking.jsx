@@ -3,19 +3,33 @@ import axios from "axios";
 import { useNavigate, useParams } from 'react-router-dom'
 
 const Booking = (props) => {
-  const bookingId = useParams()
+  const { sitter, _id } = props.user
+  const booking_id = useParams().booking_id
   const [booking, setBooking] = useState({})
-  const { name, numberOfKids, pickUp, dropOff, bath, startTime, hours, notes } = booking
+  const [applicants, setApplicants] = useState(_id)
+  const { name, numberOfKids, pickUp, dropOff, bath, startTime, hours, notes, } = booking
 
-
+// console.log(booking_id);
 
 
 const getBooking = () => {
-  axios.post('booking/getBooking', bookingId)
+  axios.post('booking/getBooking', {booking_id})
   .then(booking => {
     setBooking(booking.data)
   })
   .catch(err => console.log(err))
+}
+
+
+// NEED TO GET THE RETURN RESULT NOW ABOUT THE LIST OF HIRED PEOPLE TO SHOW UP ON THE PAGE
+
+const applyForBooking = () => {
+  // console.log(applicants)
+  axios.post('booking/applyForJob', {booking_id, applicants })
+//   .then(booking => {
+// console.log(booking);
+//   })
+    .catch(err => console.log(err))
 }
 
 useEffect(() => {
@@ -33,6 +47,13 @@ useEffect(() => {
       <p>Start Time and Date:{startTime}</p>
       <p>Hours: {hours}</p>
       <p>Notes: {notes}</p>
+
+
+      {!sitter &&
+        <>
+        <button onClick={applyForBooking}>apply for job</button>
+        </>
+      }
     </>
   )
 }

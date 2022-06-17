@@ -5,8 +5,9 @@ const ObjectId = Schema.Types.ObjectId;
 const bookingSchema = new Schema(
   {
     parent: { type: ObjectId, ref: "User" },
-    applicants: { type: ObjectId, ref: "User" },
+    applicants: [{ type: ObjectId, ref: "User", unique: true }],
     // kids: { type: ObjectId, ref: "Kid" },
+    hired: { type: ObjectId, ref: "User" },
     numberOfKids: Number,
     name: String,
     pickUp: Boolean,

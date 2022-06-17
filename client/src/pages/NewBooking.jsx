@@ -12,15 +12,16 @@ const NewBooking = (props) => {
   const [startTime, setstartTime] = useState()
   const [hours, setHours] = useState(0)
   const [notes, setNotes] = useState('')
+  const [applicants, setApplicants] = useState()
+  const [hired, setHired] = useState()
   const [parent, setParent] = useState(props.user._id)
-
 
 
 const makeBooking = (e) => {
   e.preventDefault()
   console.log('buttons working')
-  axios.post('booking/makeBooking', { parent, name, numberOfKids, pickUp, dropOff, bath, startTime, hours, notes});
-  navigate('/dashboard')
+  axios.post('booking/makeBooking', { parent, name, numberOfKids, pickUp, dropOff, bath, startTime, hours, notes, applicants, hired});
+  // navigate('/dashboard')
 }
 
   return (

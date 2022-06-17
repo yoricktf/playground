@@ -11,7 +11,6 @@ const goToNewBooking = () => {
 }
 
 const getAllBookings = () => {
-  console.log('route is triggered')
   axios.get('booking/getAllBookings')
   .then(bookings => {
 
@@ -19,7 +18,10 @@ const getAllBookings = () => {
   })
 }
 
-console.log(props.user._id);
+
+console.log(Date());
+
+
 
 useEffect(() => {
   getAllBookings()
@@ -40,7 +42,7 @@ useEffect(() => {
     return booking
   }
 }).map(booking => (
-  <h1>{booking.name}</h1>
+  <a href={`/booking/${booking._id}`} key={booking._id}> <h1>{booking.name}</h1></a>
 )) }
 
 
