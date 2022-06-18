@@ -7,9 +7,22 @@ import * as CONSTS from "../../utils/consts";
 const Navbar = (props) => {
   return (
     <nav>
-      <Link to={PATHS.HOMEPAGE} className="nav__projectName">
-        {CONSTS.CAPITALIZED_APP} - created with IronLauncher
-      </Link>
+
+
+      {props.user ? (
+        <Link to={PATHS.DASHBOARD} className="nav__projectName">
+          {CONSTS.CAPITALIZED_APP}
+        </Link>
+      ) : (
+        <Link to={PATHS.HOMEPAGE} className="nav__projectName">
+          {CONSTS.CAPITALIZED_APP}
+        </Link>
+      )}
+
+
+
+
+
 
       <div className="nav__authLinks">
         {props.user ? (
