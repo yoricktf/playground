@@ -21,7 +21,7 @@ const makeBooking = (e) => {
   e.preventDefault()
   console.log('buttons working')
   axios.post('booking/makeBooking', { parent, name, numberOfKids, pickUp, dropOff, bath, startTime, hours, notes, applicants, hired});
-  // navigate('/dashboard')
+  navigate('/dashboard')
 }
 
   return (

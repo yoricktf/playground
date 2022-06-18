@@ -15,6 +15,7 @@ router.post('/getBooking', (req,res,next) => {
   const booking_Id = req.body.booking_id
   // console.log( 'booking id:',booking_Id);
   Booking.findById(booking_Id)
+    .populate('applicants')
     .then(booking => {
       res.status(200).json(booking)
     })
