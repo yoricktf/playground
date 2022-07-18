@@ -25,7 +25,8 @@ app.use("/user", userRouter);
 const bookingRouter = require("./routes/booking.routes");
 app.use("/booking", bookingRouter);
 
-
+const authRouter = require("./routes/auth.routes");
+app.use("/auth", authRouter);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
