@@ -9,12 +9,9 @@ const Booking = (props) => {
   const [applicant, setApplicant] = useState(_id)
   const { name, numberOfKids, pickUp, dropOff, bath, startTime, hours, notes, applicants } = booking
 
+console.log('there are so many applicants:', applicants );
+
 console.log(applicants);
-
-
-
-
-
 // NEED TO GET THE RETURN RESULT NOW ABOUT THE LIST OF HIRED PEOPLE TO SHOW UP ON THE PAGE
 
 const applyForBooking = () => {
@@ -26,16 +23,19 @@ const applyForBooking = () => {
     .catch(err => console.log(err))
 }
 
-useEffect(() => {
-  // getBooking()
   const getBooking = () => {
     axios.post('booking/getBooking', { booking_id })
       .then(booking => {
+        console.log(booking.data)
         setBooking(booking.data)
       })
       .catch(err => console.log(err))
   }
-},[])
+
+useEffect(() => {
+  getBooking()
+
+}, [])
 
 
   return (
@@ -48,10 +48,18 @@ useEffect(() => {
       <p>Start Time and Date:{startTime}</p>
       <p>Hours: {hours}</p>
       <p>Notes: {notes}</p>
+      { applicants ? (
+        <h1>no applicants</h1>
+      ) : (
+        <>
+        {/* {applicants.filter} */}
+        <h1>yes yes yes</h1>
+        </>
+      )}
 {/* {applicants.filter(applicant => {
   <h1>applicant: {applicant}</h1>
 })} */}
-
+{/* <h1>{applicants}</h1> */}
       {sitter &&
         <>
         <button onClick={applyForBooking}>apply for job</button>

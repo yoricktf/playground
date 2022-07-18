@@ -33,16 +33,11 @@ router.get('/getAllBookings', (req,res,next) => {
 router.post('/applyForJob', (req,res,next) => {
   // console.log( 'this is the body-----------' ,req.body);
   // console.log('this is working now here here here here here eherer');
-
-
   const {booking_id, applicants} = req.body
-
   console.log('these are the applicants',applicants);
   console.log('booking ID ____________________',booking_id);
 
-
-
-  Booking.findByIdAndUpdate(booking_id, { applicants }, { new: true })
+  Booking.findByIdAndUpdate(booking_id, { $addToSet: {applicants} }, { new: true })
   .then(booking => {
     res.status(200).json(booking)
   })
